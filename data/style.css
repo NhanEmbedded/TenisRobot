@@ -1,0 +1,412 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Arial", sans-serif;
+}
+
+body {
+  background-color: #f9f9f9;
+}
+h1 {
+  font-family: "Roboto Mono", monospace;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+h2 h3 {
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+.material-symbols-outlined {
+  user-select: none; /* Standard syntax */
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none; /* Older Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+}
+/* Header css */
+.logo {
+  width: 80px;
+  height: 50px;
+}
+#name-logo {
+  display: flex;
+  flex-direction: column; /* Đặt các phần tử trong một cột */
+}
+#name-logo a {
+  padding-left: 10px;
+  font-family: "Roboto Mono", monospace;
+  font-optical-sizing: auto;
+  font-style: normal;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: black;
+  margin: 2px 0; /* Khoảng cách giữa các liên kết */
+}
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100px;
+  padding-left: 50px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+#nav-icon {
+  text-align: right;
+  color: black;
+  padding: 10px;
+  font-size: 20px;
+  cursor: pointer;
+  display: none;
+}
+.nav-list-header {
+  display: flex;
+  justify-content: center;
+  list-style-type: none;
+  margin-left: 150px;
+}
+.nav-list-header li {
+  margin: 0 30px 0 30px;
+}
+.nav-list-header a {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: color 0.3s ease;
+  margin-left: 0px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+.nav-list-header a:hover {
+  color: #1e90ff;
+}
+.search-container {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-right: 30px;
+}
+
+.search-input {
+  padding: 10px;
+  border-radius: 25px 0 0 25px;
+  border: 2px solid #1e90ff;
+  outline: none;
+  width: 200px;
+  transition: width 0.4s ease;
+}
+
+.search-input:focus {
+  width: 250px;
+  border-color: #00bfff;
+}
+
+.search-button {
+  padding: 10px 20px;
+  border: none;
+  background-color: #1e90ff;
+  color: white;
+  font-weight: bold;
+  border-radius: 0 25px 25px 0;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.search-button:hover {
+  background-color: #00bfff;
+}
+/* Css for control panel */
+.box_control {
+  width: 30%;
+  height: 400px;
+  border: rgb(154, 138, 120) solid 2px;
+  float: left;
+  margin: 60px 0px 0 0px;
+}
+#control_man {
+  margin-left: 70px;
+}
+
+.button_control {
+  border: solid 1px black;
+  border-radius: 20px;
+}
+
+#button-lef,
+#button-right {
+  background-color: rgb(154, 138, 120);
+  width: 80px;
+  height: 80px;
+  display: inline-block;
+  margin-left: 83px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+#button-bottom {
+  background-color: rgb(154, 138, 120);
+  width: 80px;
+  height: 80px;
+  margin-left: 168px;
+}
+
+#button-top {
+  background-color: rgb(154, 138, 120);
+  width: 80px;
+  height: 80px;
+  margin-top: 20px;
+  margin-left: 168px;
+}
+
+#arrow-up-icon {
+  margin-left: -4px;
+  font-size: 90px;
+  margin-top: -6px;
+}
+
+#arrow-right-icon {
+  font-size: 65px;
+  margin: 7px 0 0 20px;
+}
+
+#arrow-left-icon {
+  font-size: 65px;
+  margin: 7px 0 0 12px;
+}
+
+#arrow-bottom-icon {
+  margin-left: -4px;
+  font-size: 90px;
+  margin-top: -6px;
+}
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+  top: 10px;
+  left: 40px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  border-radius: 34px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+input:checked + .slider {
+  background-color: #2196f3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196f3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+.box_display {
+  width: 60%;
+  height: 400px;
+  border-top: rgb(154, 138, 120) solid 2px; /* Đường viền trên */
+  border-bottom: rgb(154, 138, 120) solid 2px; /* Đường viền trái */
+  border-right: rgb(154, 138, 120) solid 2px; /* Đường viền phải */
+  float: left;
+  margin: 60px 0px 0 0px;
+}
+#Control_mode {
+  margin: 20px;
+}
+.chose_switch {
+  display: inline-block;
+  padding-left: 50px;
+}
+.slider-speed {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.speedslider {
+  /* -webkit-appearance: none; Ẩn thanh trượt mặc định trên Safari */
+  width: 200px; /* Chiều rộng của thanh trượt */
+  height: 10px; /* Chiều cao của thanh trượt */
+  background: #f21818; /* Màu nền */
+  border-radius: 5px; /* Bo góc */
+  outline: none; /* Bỏ viền */
+  transition: background 0.3s; /* Hiệu ứng chuyển tiếp */
+}
+
+.speedslider::-webkit-slider-thumb {
+  -webkit-appearance: none; /* Ẩn thanh trượt mặc định trên Safari */
+  appearance: none; /* Ẩn thanh trượt mặc định trên các trình duyệt khác */
+  width: 20px; /* Chiều rộng của nút kéo */
+  height: 20px; /* Chiều cao của nút kéo */
+  border-radius: 50%; /* Bo góc */
+  background: #4caf50; /* Màu nút kéo */
+  cursor: pointer; /* Con trỏ khi rê chuột lên nút kéo */
+}
+
+.speedslider::-moz-range-thumb {
+  width: 20px; /* Chiều rộng của nút kéo */
+  height: 20px; /* Chiều cao của nút kéo */
+  border-radius: 50%; /* Bo góc */
+  background: #4caf50; /* Màu nút kéo */
+  cursor: pointer; /* Con trỏ khi rê chuột lên nút kéo */
+}
+
+.slider-speed h3 {
+  margin-bottom: 20px;
+}
+.slider-speed label {
+  margin-top: 20px;
+}
+.slider-speed {
+  margin-top: 50px;
+  margin-left: -580px;
+}
+#slider-speed-pick {
+  margin: -90px 0 0 0;
+}
+button {
+  touch-action: manipulation; /* Ngăn chặn hành vi zoom */
+  user-select: none; /* Ngăn chọn văn bản */
+  -webkit-user-select: none; /* Cho trình duyệt WebKit */
+  outline: none; /* Bỏ viền mặc định khi nhấn */
+}
+
+.count-container {
+  text-align: center;
+  border: 2px solid #333;
+  border-radius: 10px;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  height: 130px;
+  width: 150px;
+  margin: -100px 4px 0 608px;
+}
+
+.count-container h1 {
+  font-size: 18px;
+}
+
+.count-container p {
+  font-size: 48px;
+  color: #4caf50; /* Màu sắc của số đếm */
+}
+/* circle display state */
+.circle_dis {
+  width: 50px;
+  height: 50px;
+  background-color: #ff0707;
+  border-radius: 50%;
+  margin: 5px 0 0 0;
+}
+#left_state,
+#right_state {
+  display: inline-block;
+}
+#left_state {
+  position: relative;
+  right: 50px;
+}
+#status {
+  margin-top: -25px;
+  margin-left: 105px;
+}
+/* CSS FOR MOBILE */
+@media (max-width: 740px) {
+  .header {
+    width: 100%;
+  }
+  /* #name-logo {
+        display: none;
+      } */
+  .nav-header {
+    display: none;
+    margin-left: 115px;
+    text-align: right;
+  }
+  .nav-list-header li {
+    margin: 0 15px 0 15px;
+  }
+  .nav-list-header {
+    margin-left: 0;
+    flex-direction: column;
+  }
+  .search-input {
+    width: 20px;
+    height: 36px;
+    background-color: #1e90ff;
+    color: white;
+  }
+
+  /* css for control panel */
+  .box_control {
+    float: none;
+    width: 100%;
+  }
+  .box_display {
+    float: none;
+    width: 100%;
+    height: 600px;
+    border: rgb(154, 138, 120) solid 2px;
+  }
+
+  .count-container {
+    margin: -245px 0px 0px 210px;
+  }
+  .chose_switch {
+    margin: 30px 0 0 -20px;
+  }
+  #nav-icon {
+    display: block;
+  }
+  .search-container {
+    display: none;
+  }
+  #control_man {
+    margin-left: 0px;
+  }
+  #slider-speed {
+    margin: 70px 150px 0 0;
+  }
+  #slider-speed-pick {
+    margin: 30px 160px 0 0;
+  }
+  #status {
+    margin-top: 20px;
+    margin-left: 240px;
+  }
+}

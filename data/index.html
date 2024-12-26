@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- Header start code -->
+    <header class="header">
+      <div class="logo-container">
+        <img
+          src="https://i.pinimg.com/originals/93/4f/7a/934f7a242471ecf3401cae8e7b3248eb.png"
+          alt="Logo"
+          class="logo"
+        />
+      </div>
+      <div id="name-logo">
+        <a href="#">FACULTY OF ELECTRICAL</a>
+        <a href="#">ELECTRONICS ENGINEERING</a>
+      </div>
+      
+      <nav class="nav-header">
+        <ul class="nav-list-header">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">FEATURES</a></li>
+          <li><a href="#">CONTROL</a></li>
+          <li><a href="#">DISPLAY</a></li>
+        </ul>
+      </nav>
+      <div id="nav-icon">
+        <i class="fa-solid fa-bars"></i>
+      </div>
+      <div class="search-container">
+        <input type="text" placeholder="Search..." class="search-input" />
+        <button class="search-button">Search</button>
+      </div>
+    </header>
+    <!-- Header end code -->
+    <!-- Slide Start code-->
+    <div></div>
+    <!-- Slide end code -->
+    <!-- Control panel start -->
+    <div id="mainControl">
+      <h1 style="color:rgb(0, 0, 0);font-family: 'Montserrat', sans-serif;text-align: center;padding-top: 50px;">CONTROL PANEL</h1>
+      <div id="control_man">
+          <div class="box_control">
+              <h2 style="color:black;margin-top: 50px;text-align: center;">CONTROL
+                  MANUAL</h2>
+                <div class="button_control" id="button-top">
+                    <span class="material-symbols-outlined" id="arrow-up-icon">keyboard_arrow_up</span>
+                </div>
+                <div class="button_control" id="button-lef">
+                    <span class="material-symbols-outlined" id="arrow-right-icon">arrow_back_ios</span>
+                </div>
+                <div class="button_control" id="button-right">
+                    <span class="material-symbols-outlined" id="arrow-left-icon">arrow_forward_ios</span>
+                </div>
+                <div class="button_control" id="button-bottom">
+                    <span class="material-symbols-outlined" id="arrow-bottom-icon">keyboard_arrow_down</span>
+                </div>
+                  <!-- Nút điều khiển lên -->
+          </div>
+          <div class = "box_display">
+                <div id="Control_mode">
+                <div class="chose_switch">
+                    <h3>MANUAL MODE</h3>
+                    <label class="switch">
+                        <input type="checkbox" id="toggleSwitch" onclick="handleSwitchState_Man()">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+                <div class="chose_switch">
+                    <h3>AUTO MODE</h3>
+                    <label class="switch">
+                        <input type="checkbox" id="toggleSwitch_auto" onclick="handleSwitchState_Auto()">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+                <div class="chose_switch">
+                  <h3>PICK-UP BALLS</h3>
+                  <label class="switch">
+                      <input type="checkbox" id="toggleSwitch_ball_auto" onclick="handleSwitchState_PickBalls()">
+                      <span class="slider"></span>
+                  </label>
+                </div>
+                <div class="chose_switch">
+                    <h3>RESET COUNT</h3>
+                    <label class="switch">
+                        <input type="checkbox" id="toggleSwitch_reset_count" onclick="handleSwitchState_Reset_Count()">
+                        <span class="slider"></span>
+                    </label>
+                  </div>
+                <div class="slider-speed" class="chose_switch" id="slider-speed">
+                    <h3>CONTROL SPEED</h3>
+                    <input type="range" id="speedSlider" class="speedslider" min="0" max="100" value="50">
+                    <label for="speedSlider" class="d">Speed: <span id="speedValue">50</span></label>
+                </div>
+                <div class="slider-speed" class="chose_switch" id="slider-speed-pick">
+                  <h3>PICK-UP BALLS</h3>
+                  <input type="range" id="speedSlider_pick" class="speedslider" min="0" max="100" value="50">
+                  <label for="speedSlider" class="d">Speed: <span id="speedValue_pick">50</span></label>
+                </div>
+                <div class="count-container" >
+                    <h1>Current Count:</h1>
+                    <p id="countDisplay">0</p>
+                </div>
+                <div id="status">
+                  <div id="fwd_state" class="circle_dis"></div>
+                  <div id="left_state" class="circle_dis"></div>
+                  <div id="right_state" class="circle_dis"></div>
+                  <div id="back_state" class="circle_dis"></div>
+                </div>
+            </div>
+          </div>
+
+  </div>
+    <!-- Control panel end -->
+     <script> 
+      //script for header 
+      $(document).ready(function(){
+        $('#nav-icon').click(function(){
+          $('.nav-header').slideToggle();
+          $('#name-logo').slideToggle();
+        })
+      })
+      // script for control speed
+        document.addEventListener('DOMContentLoaded', () => {
+            const speedSlider = document.getElementById('speedSlider');
+            const speedValue = document.getElementById('speedValue');
+            let currentSpeed = speedSlider.value; // Lấy giá trị ban đầu
+            const sendDataThrottledPWM = throttle(sendSpeedAction, 100); // Giới hạn gửi dữ liệu mỗi 100ms
+            // Cập nhật giá trị âm lượng khi kéo thanh trượt
+            speedSlider.addEventListener('input', () => {
+              currentSpeed = speedSlider.value; // Cập nhật giá trị mới
+              speedValue.textContent = speedSlider.value;
+              let postValue = `${currentSpeed}`;
+              console.log(postValue)
+              sendDataThrottledPWM(postValue)
+            });
+           
+            
+        });
+        // script for control speed
+        document.addEventListener('DOMContentLoaded', () => {
+            const speedSlider = document.getElementById('speedSlider_pick');
+            const speedValue = document.getElementById('speedValue_pick');
+            let currentSpeed_pick = speedSlider.value; // Lấy giá trị ban đầu
+            const sendDataThrottledPWM_pick = throttle(sendPwmPickBalls, 100); // Giới hạn gửi dữ liệu mỗi 100ms
+            // Cập nhật giá trị âm lượng khi kéo thanh trượt
+            speedSlider.addEventListener('input', () => {
+              let currentSpeed_pick = speedSlider.value; // Lấy giá trị ban đầu
+              letpostPwwm = `${currentSpeed_pick}`;
+              speedValue.textContent = speedSlider.value;
+              sendDataThrottledPWM_pick(letpostPwwm)
+            });
+        });
+        //script for control panel
+        function throttle(func, limit) {
+            let lastFunc;
+            let lastRan;
+            return function(...args) {
+                if (!lastRan) {
+                    func.apply(this, args);
+                    lastRan = Date.now();
+                } else {
+                    clearTimeout(lastFunc);
+                    lastFunc = setTimeout(function() {
+                        if ((Date.now() - lastRan) >= limit) {
+                            func.apply(this, args);
+                            lastRan = Date.now();
+                        }
+                    }, limit - (Date.now() - lastRan));
+                }
+            };
+        }
+                function handleSwitchState_PickBalls(){
+                    const toggleSwitchPick = document.getElementById('toggleSwitch_ball_auto');
+                    const sendDataThrottledPickState = throttle(sendControlPickState, 100); // Giới hạn gửi dữ liệu mỗi 100ms
+                    if(toggleSwitchPick.checked === true){
+                        sendDataThrottledPickState('True')
+                    }else{
+                        sendDataThrottledPickState('False')
+                    }
+                }
+                function handleSwitchState_Auto(){
+                    const toogleSwitchAuto = document.getElementById('toggleSwitch_auto');
+                    const sendDataThrottledAutomode = throttle(sendControlAutoMode, 100); // Giới hạn gửi dữ liệu mỗi 100ms
+                    if(toogleSwitchAuto.checked === true){
+                        sendDataThrottledAutomode('True')
+                    }else{
+                        sendDataThrottledAutomode('False')
+                    }
+                }
+
+            // Hàm để gửi dữ liệu về ESP32 qua POST
+            async function sendData(data) {
+                try {
+                    const response = await fetch('/submit', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/x-www-form-urlencoded'
+                        },
+                        body: 'data=' + encodeURIComponent(data) // POST dữ liệu lên server ESP32
+                    });
+                    if (response.ok) {
+                        console.log('Data sent successfully');
+                    } else {
+                        console.error('Error: ' + response.statusText);
+                    }
+                } catch (error) {
+                    console.error('Error submitting data:', error);
+                }
+            }
+
+            function handleSwitchState_Man() {
+                const toggleSwitch = document.getElementById('toggleSwitch');
+
+                // Kiểm tra trạng thái bật/tắt của toggleSwitch
+                if (toggleSwitch.checked === true) {
+                    console.log('Switch state: ON');
+                    
+                    // Các phần tử nút
+                    const buttonUp = document.getElementById("button-top");
+                    const buttonLeft = document.getElementById("button-lef");
+                    const buttonRight = document.getElementById("button-right");
+                    const buttonDown = document.getElementById("button-bottom");
+
+                    // Hàm gửi dữ liệu (với giới hạn tần suất gửi)
+                    const sendDataThrottled = throttle(sendData, 200);
+
+                    // Hàm xử lý khi nhấn nút
+                    function handleButtonPress(control_rq, buttonElement, statusElement) {
+                        if (toggleSwitch.checked) {
+                            buttonElement.style.backgroundColor = 'white';
+                            statusElement.style.backgroundColor = 'green';
+                            let myString = `${control_rq}`;
+                            console.log("Data to send:", myString);
+                            sendDataThrottled(myString);
+
+                            // Thiết lập gửi dữ liệu liên tục khi giữ nút
+                            const interval = setInterval(() => {
+                                if (toggleSwitch.checked) {
+                                    sendDataThrottled(myString); // Gửi dữ liệu liên tục
+                                }
+                            }, 100);  // Gửi dữ liệu mỗi 100ms
+
+                            // Lưu lại interval để hủy khi thả nút
+                            buttonElement._interval = interval;
+                        }
+                    }
+
+                    // Hàm xử lý khi thả nút
+                    function handleButtonRelease(buttonElement, statusElement) {
+                        if (toggleSwitch.checked) {
+                            buttonElement.style.backgroundColor = 'rgb(154, 138, 120)';
+                            statusElement.style.backgroundColor = 'red';
+                            let myString = '0';
+                            console.log("Data to send on release:", myString);
+                            sendDataThrottled(myString);
+
+                            // Dừng gửi dữ liệu khi thả nút
+                            clearInterval(buttonElement._interval);
+                        }
+                    }
+
+                    // Thêm sự kiện cho các nút (chuột và cảm ứng)
+                    // Phím W (button-up)
+                    buttonUp.addEventListener('touchstart', () => handleButtonPress(87, buttonUp, document.getElementById('fwd_state')));
+                    buttonUp.addEventListener('mousedown', () => handleButtonPress(87, buttonUp, document.getElementById('fwd_state')));
+                    
+                    buttonUp.addEventListener('touchend', () => handleButtonRelease(buttonUp, document.getElementById('fwd_state')));
+                    buttonUp.addEventListener('mouseup', () => handleButtonRelease(buttonUp, document.getElementById('fwd_state')));
+                    
+                    // Phím A (button-left)
+                    buttonLeft.addEventListener('touchstart', () => handleButtonPress(65, buttonLeft, document.getElementById('left_state')));
+                    buttonLeft.addEventListener('mousedown', () => handleButtonPress(65, buttonLeft, document.getElementById('left_state')));
+                    
+                    buttonLeft.addEventListener('touchend', () => handleButtonRelease(buttonLeft, document.getElementById('left_state')));
+                    buttonLeft.addEventListener('mouseup', () => handleButtonRelease(buttonLeft, document.getElementById('left_state')));
+
+                    // Phím D (button-right)
+                    buttonRight.addEventListener('touchstart', () => handleButtonPress(68, buttonRight, document.getElementById('right_state')));
+                    buttonRight.addEventListener('mousedown', () => handleButtonPress(68, buttonRight, document.getElementById('right_state')));
+                    
+                    buttonRight.addEventListener('touchend', () => handleButtonRelease(buttonRight, document.getElementById('right_state')));
+                    buttonRight.addEventListener('mouseup', () => handleButtonRelease(buttonRight, document.getElementById('right_state')));
+
+                    // Phím S (button-down)
+                    buttonDown.addEventListener('touchstart', () => handleButtonPress(83, buttonDown, document.getElementById('back_state')));
+                    buttonDown.addEventListener('mousedown', () => handleButtonPress(83, buttonDown, document.getElementById('back_state')));
+                    
+                    buttonDown.addEventListener('touchend', () => handleButtonRelease(buttonDown, document.getElementById('back_state')));
+                    buttonDown.addEventListener('mouseup', () => handleButtonRelease(buttonDown, document.getElementById('back_state')));
+
+                } else {
+                    console.log('Switch state: OFF');
+                }
+            }
+
+
+
+
+            // Hàm để gửi dữ liệu Speed value về ESP32 qua POST method
+            async function sendSpeedAction(data) {
+                try {
+                    const response = await fetch('/PwmAction', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/x-www-form-urlencoded'
+                        },
+                        body: 'data=' + encodeURIComponent(data) // POST dữ liệu lên server ESP32
+                    });
+                    if (response.ok) {
+                        console.log('Data sent successfully');
+                    } else {
+                        console.error('Error: ' + response.statusText);
+                    }
+                } catch (error) {
+                    console.error('Error submitting data:', error);
+                }
+            }
+            // Hàm để gửi dữ liệu control pick-ball về ESP32 qua POST method
+            async function sendControlPickState(data) {
+                try {
+                    const response = await fetch('/PickState', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/x-www-form-urlencoded'
+                        },
+                        body: 'data=' + encodeURIComponent(data) // POST dữ liệu lên server ESP32
+                    });
+                    if (response.ok) {
+                        console.log('Data sent successfully');
+                    } else {
+                        console.error('Error: ' + response.statusText);
+                    }
+                } catch (error) {
+                    console.error('Error submitting data:', error);
+                }
+            }
+            // Hàm để gửi dữ liệu control auto về ESP32 qua POST method
+            async function sendControlAutoMode(data) {
+                try {
+                    const response = await fetch('/AutoState', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/x-www-form-urlencoded'
+                        },
+                        body: 'data=' + encodeURIComponent(data) // POST dữ liệu lên server ESP32
+                    });
+                    if (response.ok) {
+                        console.log('Data sent successfully');
+                    } else {
+                        console.error('Error: ' + response.statusText);
+                    }
+                } catch (error) {
+                    console.error('Error submitting data:', error);
+                }
+            }
+            // Hàm để gửi dữ liệu PWM về ESP32 qua POST method
+            async function sendPwmPickBalls(data) {
+                try {
+                    const response = await fetch('/PickPwm', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/x-www-form-urlencoded'
+                        },
+                        body: 'data=' + encodeURIComponent(data) // POST dữ liệu lên server ESP32
+                    });
+                    if (response.ok) {
+                        console.log('Data sent successfully');
+                    } else {
+                        console.error('Error: ' + response.statusText);
+                    }
+                } catch (error) {
+                    console.error('Error submitting data:', error);
+                }
+            }
+
+            async function getDigitalValue() {
+    try {
+        const response = await fetch('/getValue');
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        const data = await response.json();
+        document.getElementById('countDisplay').innerText = data.digitalValue;
+    } catch (error) {
+        console.error("Error fetching digital value:", error);
+    } finally {
+        // Gọi lại hàm sau 5 giây
+        setTimeout(getDigitalValue, 1000);
+    }
+}
+
+getDigitalValue(); // Bắt đầu gọi lần đầu
+
+
+     </script>
+  </body>
+</html>
