@@ -99,7 +99,7 @@
                 <div class="chose_switch">
                     <h3>RESET COUNT</h3>
                     <label class="switch">
-                        <input type="checkbox" id="toggleSwitch_reset_count" onclick="handleSwitchState_Reset_Count()">
+                        <input type="checkbox" id="toggleSwitch_reset_count" onclick="handleSwitchState_Reset()">
                         <span class="slider"></span>
                     </label>
                   </div>
@@ -204,7 +204,15 @@
                         sendDataThrottledAutomode('False')
                     }
                 }
-
+                function handleSwitchState_Reset(){
+                    const toogleSwitchAuto = document.getElementById('toggleSwitch_reset_count');
+                    const sendDataThrottledAutomode = throttle(sendResetMode, 100); // Giới hạn gửi dữ liệu mỗi 100ms
+                    if(toogleSwitchAuto.checked === true){
+                        sendDataThrottledAutomode('True')
+                    }else{
+                        sendDataThrottledAutomode('False')
+                    }
+                }
             // Hàm để gửi dữ liệu về ESP32 qua POST
             async function sendData(data) {
                 try {
@@ -355,6 +363,24 @@
             async function sendControlAutoMode(data) {
                 try {
                     const response = await fetch('/AutoState', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/x-www-form-urlencoded'
+                        },
+                        body: 'data=' + encodeURIComponent(data) // POST dữ liệu lên server ESP32
+                    });
+                    if (response.ok) {
+                        console.log('Data sent successfully');
+                    } else {
+                        console.error('Error: ' + response.statusText);
+                    }
+                } catch (error) {
+                    console.error('Error submitting data:', error);
+                }
+            }
+            async function sendResetMode(data) {
+                try {
+                    const response = await fetch('/ResetState', {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/x-www-form-urlencoded'
